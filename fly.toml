@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for triochallenge on 2024-02-23T19:50:35-03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'xss-cookie-receiver'
+primary_region = 'gru'
+
+[build]
+
+#[env]
+# BATATA = 1
+
+[http_service]
+  internal_port = 5000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
